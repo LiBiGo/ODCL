@@ -4,13 +4,8 @@ This repo contains the implementation of our fewshot object detector,Object  Dis
 
 ![image-20230920172813651](README_img/image-20230920172813651.png)
 
-## 1 Download the results of our experiments：
 
-There is Pipe Weld Defect Dataset and experimental results. 
-
-Download link：https://pan.baidu.com/s/1wwkrNmZ_ze2tjqqof3_nGg?pwd=8888 
-
-## 2 Visualization of experimental results
+## 1 Visualization of experimental results
 
 Results of the experimental effectiveness of the ODCL method in comparison with other existing methods：
 
@@ -20,7 +15,7 @@ Results of the experimental effectiveness of the ODCL method in comparison with 
 
 
 
-## 3 Installation
+## 2 Installation
 
 Which is built on [Detectron2](https://github.com/facebookresearch/detectron2). But you don't need to build detectron2 seperately as this codebase is self-contained. You can follow the instructions below to install the dependencies and build `FsDet`.
 
@@ -44,7 +39,7 @@ python setup.py build develop  # you might need sudo
 
 Note: you may need to rebuild ODCL after reinstalling a different build of PyTorch.
 
-## 4 Data preparation
+## 3 Data preparation
 
 In the experiments of this paper, three datasets of Pipe Weld Defect, Hot Rolled Strip Defect, and Aluminum Alloy Defect Dataset are selected for experiments. The splits can be found in **fsdet/data/datasets/builtin_meta.py**.
 
@@ -56,7 +51,7 @@ Aluminum Alloy Defect Dataset：We randomly split the 4 object classes into 2 ba
 
 The datasets and data splits are built-in, simply make sure the directory structure agrees with **datasets/README.md** to launch the program. 
 
-## 5 Code Structure
+## 4 Code Structure
 
 The code structure follows Detectron2 v0.1.* and fsdet. 
 
@@ -70,8 +65,6 @@ The code structure follows Detectron2 v0.1.* and fsdet.
   - **evaluation**: Evaluation code for different datasets.
   - **layers**: Implementations of different layers used in models.
   - **modeling**: Code for models, including backbones, proposal networks, and prediction heads.
-    - The majority of ODCL functionality are implemtended in `./fsdet/modeling/backbone/fpn.py `, `.fsdet/layers/attention.py`, and  `./fsdet/modeling/roi_heads/roi_heads.py`
-    - So one can first make sure  [FsDet v0.1](https://github.com/ucbdrive/few-shot-object-detection/tags) runs smoothly, and then refer to ODCL implementations and configurations. 
   - **solver**: Scheduler and optimizer code.
   - **structures**: Data types, such as bounding boxes and image lists.
   - **utils**: Utility functions.
@@ -80,7 +73,7 @@ The code structure follows Detectron2 v0.1.* and fsdet.
   - **test_net.py**: Testing script.
   - **ckpt_surgery.py**: Surgery on checkpoints.
 
-## 6 Train & Inference
+## 5 Train & Inference
 
 ### Training
 
